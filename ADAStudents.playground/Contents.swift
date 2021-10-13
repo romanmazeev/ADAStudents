@@ -1,3 +1,7 @@
 import PlaygroundSupport
 
-PlaygroundPage.current.setLiveView(ContentView())
+PlaygroundPage.current.setLiveView(
+    WelcomeView()
+        .frame(width: 320, height: 568)
+)
+
