@@ -10,6 +10,7 @@ import SwiftUI
 struct AnswerButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .frame(maxWidth: .infinity)
             .padding()
             .background(Color.accentColor)
             .opacity(configuration.isPressed ? 0.5 : 1)
@@ -25,5 +26,6 @@ struct AnswerButtonStyle_Previews: PreviewProvider {
         Button("example") {
         }
         .buttonStyle(AnswerButtonStyle())
+        .padding()
     }
 }
