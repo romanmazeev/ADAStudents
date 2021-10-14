@@ -25,7 +25,7 @@ extension State {
             return QuestionViewModel.timeForSubmissionIsOver
 
         case .exam(let prepared):
-            return QuestionViewModel.exam // TODO:
+            return prepared ? QuestionViewModel.examEasy : QuestionViewModel.examHard
         case .interview:
             return QuestionViewModel.interview
         case .english:
@@ -61,16 +61,49 @@ extension State {
             return QuestionViewModel.noFreeCovidTests
         case .covidTestMoney:
             return QuestionViewModel.covidTestMoney
+        case .testEvery48h:
+            return QuestionViewModel.testEvery48h
+        case .noMoney:
+            return QuestionViewModel.noMoney
         case .vaccine:
             return QuestionViewModel.vaccine
 
-        // Вставляй новые вью модели сюда
+        case .vaccineCFInvisible:
+            return QuestionViewModel.vaccineCFInvisible
+        case .vaccineFightingBureaucracy:
+            return QuestionViewModel.vaccineFightingBureaucracy
+        case .specialDottoressa:
+            return QuestionViewModel.specialDottoressa
+        case .gotVaccine:
+            return QuestionViewModel.gotVaccine
+        case .allergic:
+            return QuestionViewModel.allergic
+        case .greenpass:
+            return QuestionViewModel.greenpass
+        case .greenpassCFInvisible:
+            return QuestionViewModel.greenpassCFInvisible
+        case .greenpassFightingBureaucracy:
+            return QuestionViewModel.greenpassFightingBureaucracy
+        case .gotGreenPass:
+            return QuestionViewModel.gotGreenPass
+        case .tuesdayNight:
+            return QuestionViewModel.tuesdayNight
+        case .strangeGuy:
+            return QuestionViewModel.strangeGuy
+        case .robbed:
+            return QuestionViewModel.robbed
+        case .friendsInClub:
+            return QuestionViewModel.friendsInClub
+        case .fewShots:
+            return QuestionViewModel.fewShots
 
         // Finals
         case .youDidNotGetIntoADA:
             return QuestionViewModel.youDidNotGetIntoADA
         case .death:
             return QuestionViewModel.death
+        case .graduated:
+            return QuestionViewModel.graduated
         }
     }
 }
@@ -117,7 +150,7 @@ extension QuestionViewModel {
         )
     }
 
-    static var exam: Self {
+    static var examEasy: Self {
         .init(
             text: "2 + 2 = ?",
             attach: .image("2_2"),
@@ -125,6 +158,17 @@ extension QuestionViewModel {
                 .init(text: "4", event: BinaryModel.Event.yes),
                 .init(text: "2", event: BinaryModel.Event.no),
                 .init(text: "3", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var examHard: Self {
+        .init(
+            text: "How many reference counters are there in the Swift class?",
+            answers: [
+                .init(text: "1", event: BinaryModel.Event.no),
+                .init(text: "2", event: BinaryModel.Event.no),
+                .init(text: "3", event: BinaryModel.Event.yes),
             ]
         )
     }
@@ -361,12 +405,185 @@ extension QuestionViewModel {
         )
     }
 
+    static var testEvery48h: Self {
+        .init(
+            text: "Make test every 48h",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var noMoney: Self {
+        .init(
+            text: "Money have finished",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
     static var vaccine: Self {
         .init(
             text: "Go get the vaccine",
             attach: nil,
             answers: [
                 .init(text: "Go", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var vaccineCFInvisible: Self {
+        .init(
+            text: "Your CF isn’t visible in the system",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var vaccineFightingBureaucracy: Self {
+        .init(
+            text: "Continue fighting bureaucracy",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+    static var specialDottoressa: Self {
+        .init(
+            text: "Get an appointment with special dottoressa",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var gotVaccine: Self {
+        .init(
+            text: "You got the vaccine",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var allergic: Self {
+        .init(
+            text: "Are you allergic to the vaccine?",
+            attach: nil,
+            answers: [
+                .init(text: "Yes", event: BinaryModel.Event.yes),
+                .init(text: "No", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var greenpass: Self {
+        .init(
+            text: "Go get your Greenpass",
+            attach: nil,
+            answers: [
+                .init(text: "Go", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var greenpassCFInvisible: Self {
+        .init(
+            text: "Your CF isn’t visible in the system",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var greenpassFightingBureaucracy: Self {
+        .init(
+            text: "Start figting bureaucracy again",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var gotGreenPass: Self {
+        .init(
+            text: "FINALLY get your greenpass",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var tuesdayNight: Self {
+        .init(
+            text: "What to do on a Tuesday night",
+            attach: nil,
+            answers: [
+                .init(text: "Go to the club", event: BinaryModel.Event.yes),
+                .init(text: "Go to sleep", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var strangeGuy: Self {
+        .init(
+            text: "You came to club and strange guy and He offered to take his car for a ride",
+            attach: nil,
+            answers: [
+                .init(text: "Take a ride", event: BinaryModel.Event.yes),
+                .init(text: "Decline his offer", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var robbed: Self {
+        .init(
+            text: "He brought you to a place where there are no people and robbed you.",
+            attach: nil,
+            answers: [
+                .init(text: "Play again", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var friendsInClub: Self {
+        .init(
+            text: "You go inside the club, there you see your friends from the Apple developer academy",
+            attach: nil,
+            answers: [
+                .init(text: "Next", event: NoOpEvent()),
+            ]
+        )
+    }
+
+    static var fewShots: Self {
+        .init(
+            text: "They offer you a few shots of tequila",
+            attach: nil,
+            answers: [
+                .init(text: "Don’t drink and be fresh naxt morning", event: BinaryModel.Event.yes),
+                .init(text: "Drink them, get overcreative and make a cool app", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var graduated: Self {
+        .init(
+            text: "You successfully graduated from the academy",
+            attach: nil,
+            answers: [
+                .init(text: "Play again", event: NoOpEvent()),
             ]
         )
     }

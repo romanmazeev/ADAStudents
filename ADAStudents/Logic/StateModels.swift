@@ -34,21 +34,59 @@ struct BinaryModel: StateModel {
     }
 }
 
-struct StartModel: StateModel {
-    func next(with event: ADAEvent) -> State {
-        .startApplying
-    }
-}
-
 struct WaitingLetterModel: StateModel {
     let attempts: Int
 
     func next(with event: ADAEvent) -> State {
-        guard event is NoOpEvent else { return .waitingLetter(attempts: attempts) }
+        guard event is NoOpEvent else { assertionFailure(); return .waitingLetter(attempts: attempts) }
 
         let newAttempts = attempts + 1
         let totalAttempts = 3
         return .checkLetter(attempts: newAttempts, isSuccess: newAttempts >= totalAttempts)
+    }
+}
+
+struct VaccineCFModel: StateModel {
+    let attempts: Int
+
+    func next(with event: ADAEvent) -> State {
+        guard event is NoOpEvent else { assertionFailure(); return .vaccineCFInvisible(attempts: attempts) }
+
+        let newAttempts = attempts + 1
+        let totalAttempts = 3
+        return .vaccineFightingBureaucracy(attempts: newAttempts, isSuccess: newAttempts >= totalAttempts)
+    }
+}
+
+struct GreenpassCFModel: StateModel {
+    let attempts: Int
+
+    func next(with event: ADAEvent) -> State {
+        guard event is NoOpEvent else { assertionFailure(); return .greenpassCFInvisible(attempts: attempts) }
+
+        let newAttempts = attempts + 1
+        let totalAttempts = 3
+        return .greenpassFightingBureaucracy(attempts: newAttempts, isSuccess: newAttempts >= totalAttempts)
+    }
+}
+
+struct CovidTestModel: StateModel {
+    let attempts: Int
+
+    func next(with event: ADAEvent) -> State {
+        guard let event = event as? BinaryModel.Event else {
+            assertionFailure()
+            return .covidTestMoney(attempts: attempts)
+        }
+
+        switch event {
+        case .yes:
+            let newAttempts = attempts + 1
+            let totalAttempts = 3
+            return .testEvery48h(attempts: newAttempts,  isSuccess: newAttempts >= totalAttempts)
+        case .no:
+            return .vaccine
+        }
     }
 }
 

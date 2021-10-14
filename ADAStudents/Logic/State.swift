@@ -25,13 +25,34 @@ enum State {
     case visaStatus(VisaStatusModel.Status)
     case visaApproved
     case visaRejected
+
     case goToNapoli
     case covidTestTime
     case noFreeCovidTests
-    case covidTestMoney
+    case covidTestMoney(attempts: Int)
+    case testEvery48h(attempts: Int, isSuccess: Bool)
+    case noMoney
+
     case vaccine
+    case vaccineCFInvisible(attempts: Int)
+    case vaccineFightingBureaucracy(attempts: Int, isSuccess: Bool)
+    case specialDottoressa
+    case gotVaccine
+    case allergic
+
+    case greenpass
+    case greenpassCFInvisible(attempts: Int)
+    case greenpassFightingBureaucracy(attempts: Int, isSuccess: Bool)
+    case gotGreenPass
+
+    case tuesdayNight
+    case strangeGuy
+    case robbed
+    case friendsInClub
+    case fewShots
 
     // Finals
     case youDidNotGetIntoADA
     case death
+    case graduated
 }
