@@ -119,8 +119,8 @@
 		8846C6FE27178D53003597CE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				8846C6F927178BF2003597CE /* ViewModels.swift */,
 				8846C6FF27178D6F003597CE /* State+viewModel.swift */,
+				8846C6F927178BF2003597CE /* ViewModels.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

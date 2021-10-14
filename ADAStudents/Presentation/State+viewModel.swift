@@ -78,9 +78,10 @@ extension State {
 extension QuestionViewModel {
     static var start: Self {
         .init(
-            text: "Какая-то стартовая фраза",
+            text: "Graduate from ADA or Die!",
+            attach: .image("startScreen"),
             answers: [
-                .init(text: "Далее", event: NoOpEvent()),
+                .init(text: "Start", event: NoOpEvent()),
             ]
         )
     }
@@ -97,9 +98,10 @@ extension QuestionViewModel {
     static var startApplying: Self {
         .init(
             text: "Start applying",
+            attach: .image("Start applying"),
             answers: [
-                .init(text: "Да", event: BinaryModel.Event.yes),
-                .init(text: "Нет", event: BinaryModel.Event.no),
+                .init(text: "Yes", event: BinaryModel.Event.yes),
+                .init(text: "No", event: BinaryModel.Event.no),
             ]
         )
     }
@@ -107,9 +109,10 @@ extension QuestionViewModel {
     static var examPreparation: Self {
         .init(
             text: "Have you prepared for the exam and interview?",
+            attach: .image("preparation"),
             answers: [
-                .init(text: "Да", event: BinaryModel.Event.yes),
-                .init(text: "Нет", event: BinaryModel.Event.no),
+                .init(text: "Yes", event: BinaryModel.Event.yes),
+                .init(text: "No", event: BinaryModel.Event.no),
             ]
         )
     }
@@ -117,6 +120,7 @@ extension QuestionViewModel {
     static var exam: Self {
         .init(
             text: "2 + 2 = ?",
+            attach: .image("2_2"),
             answers: [
                 .init(text: "4", event: BinaryModel.Event.yes),
                 .init(text: "2", event: BinaryModel.Event.no),
@@ -128,6 +132,7 @@ extension QuestionViewModel {
     static var admissionToADA: Self {
         .init(
             text: "Admission",
+            attach: .image("admission"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -137,6 +142,7 @@ extension QuestionViewModel {
     static var sendingRequest: Self {
         .init(
             text: "Have you sent a request?",
+            attach: .image("send request"),
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "No", event: BinaryModel.Event.no)
@@ -156,6 +162,7 @@ extension QuestionViewModel {
     static var applicationWasAccepted: Self {
         .init(
             text: "Your application was accepted",
+            attach: .image("tick"),
             answers: [
                 .init(text: "Next", event: NoOpEvent())
             ]
@@ -165,6 +172,7 @@ extension QuestionViewModel {
     static var timeForSubmissionIsOver: Self {
         .init(
             text: "You didn't find where to leave your application and the time for submission is over",
+            attach: .image("time over"),
             answers: [
                 .init(text: "Next", event: NoOpEvent())
             ]
@@ -174,6 +182,7 @@ extension QuestionViewModel {
     static var youDidNotGetIntoADA: Self {
         .init(
             text: "You did not get into Apple Developer Academy :c",
+            attach: .image("did not get"),
             answers: [
                 .init(text: "Restart", event: NoOpEvent()),
             ]
@@ -183,6 +192,7 @@ extension QuestionViewModel {
     static var interview: Self {
         .init(
             text: "Interview",
+            attach: .image("interview"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -192,6 +202,7 @@ extension QuestionViewModel {
     static var english: Self {
         .init(
             text: "Do you know English?",
+            attach: .image("english"),
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "A little bit", event: BinaryModel.Event.yes),
@@ -203,6 +214,7 @@ extension QuestionViewModel {
     static var invited: Self {
         .init(
             text: "You are invited to the academy",
+            attach: .image("Hoorray!!!"),
             answers: [
                 .init(text: "Hooray!", event: NoOpEvent()),
             ]
@@ -212,6 +224,7 @@ extension QuestionViewModel {
     static var interviewFailed: Self {
         .init(
             text: "You didn't pass the interview",
+            attach: .image("interview failed"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -221,6 +234,7 @@ extension QuestionViewModel {
     static var waitingLetter: Self {
         .init(
             text: "Waiting for the letter",
+            attach: .image("no letter"),
             answers: [
                 .init(text: "Check letter", event: NoOpEvent()),
             ]
@@ -229,7 +243,8 @@ extension QuestionViewModel {
 
     static var checkLetterSuccess: Self {
         .init(
-            text: "Письмо пришло!",
+            text: "Letter has arrived!",
+            attach: .image("1 letter"),
             answers: [
                 .init(text: "Next", event: BinaryModel.Event.yes),
             ]
@@ -238,7 +253,8 @@ extension QuestionViewModel {
 
     static var checkLetterFail: Self {
         .init(
-            text: "Письмо ещё не пришло",
+            text: "Still no letter",
+            attach: .image("sad waiting"),
             answers: [
                 .init(text: "Next", event: BinaryModel.Event.no),
             ]
