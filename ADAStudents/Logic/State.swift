@@ -21,10 +21,11 @@ enum State {
     case interviewFailed
     case waitingLetter(attempts: Int)
     case checkLetter(attempts: Int, isSuccess: Bool)
+    
     case applyForVisa
     case visaStatus(VisaStatusModel.Status)
-    case visaApproved
-    case visaRejected
+   // case visaApproved
+   // case visaRejected
 
     case goToNapoli
     case covidTestTime

@@ -47,11 +47,11 @@ extension State {
         case .applyForVisa:
             return SimpleModel(next: .visaStatus(.idle))
         case .visaStatus(let status):
-            return VisaStatusModel(status: status, yes: .visaApproved, no: .visaRejected)
-        case .visaApproved:
-            return SimpleModel(next: .goToNapoli)
-        case .visaRejected:
-            return SimpleModel(next: .youDidNotGetIntoADA)
+            return VisaStatusModel(status: status, yes: .goToNapoli, no: .youDidNotGetIntoADA)
+//        case .visaApproved:
+//            return SimpleModel(next: .goToNapoli)
+//        case .visaRejected:
+//            return SimpleModel(next: .youDidNotGetIntoADA)
 
         case .goToNapoli:
             return SimpleModel(next: .covidTestTime)

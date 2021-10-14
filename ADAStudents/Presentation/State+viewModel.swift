@@ -48,10 +48,10 @@ extension State {
             return QuestionViewModel.applyForVisa
         case .visaStatus(let status):
             return QuestionViewModel.visaStatus(status)
-        case .visaApproved:
-            return QuestionViewModel.visaApproved
-        case .visaRejected:
-            return QuestionViewModel.visaRejected
+//        case .visaApproved:
+//            return QuestionViewModel.visaApproved
+//        case .visaRejected:
+//            return QuestionViewModel.visaRejected
 
         case .goToNapoli:
             return QuestionViewModel.goToNapoli
@@ -197,6 +197,7 @@ extension QuestionViewModel {
     static var death: Self {
         .init(
             text: "Death",
+            attach: .image("skull"),
             answers: [
                 .init(text: "Restart", event: NoOpEvent()),
             ]
@@ -308,6 +309,7 @@ extension QuestionViewModel {
     static var applyForVisa: Self {
         .init(
             text: "Apply for visa",
+            attach: .image("bureaucracy"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -321,21 +323,22 @@ extension QuestionViewModel {
 
         switch status {
         case .idle:
-            text = "Чтобы проверить статус визы покрутите колесо"
+            text = "Rotate the wheel to check visa status"
             answers = []
             attach = .fortuneWheel
         case .yes:
-            text = "Поздравляем, вы получили визу"
+            text = "Congratulations! You got your visa!"
+            attach = .image("visa")
             answers = [
                 .init(text: "Next", event: VisaStatusModel.Event.choose(true)),
             ]
-            attach = nil // TODO: Add image
         case .no:
-            text = "Вам не повезло"
+            text = "Life is a bitch--"
+         
             answers = [
                 .init(text: "Next", event: VisaStatusModel.Event.choose(false)),
             ]
-            attach = nil // TODO: Add image
+            attach = .image("skull")
         }
 
         return .init(
@@ -345,28 +348,28 @@ extension QuestionViewModel {
         )
     }
 
-    static var visaApproved: Self {
-        .init(
-            text: "The visa was approved",
-            answers: [
-                .init(text: "Next", event: NoOpEvent()),
-            ]
-        )
-    }
-
-    static var visaRejected: Self {
-        .init(
-            text: "The visa was not approved",
-            answers: [
-                .init(text: "Next", event: NoOpEvent()),
-            ]
-        )
-    }
+//    static var visaApproved: Self {
+//        .init(
+//            text: "The visa was approved",
+//            answers: [
+//                .init(text: "Next", event: NoOpEvent()),
+//            ]
+//        )
+//    }
+//
+//    static var visaRejected: Self {
+//        .init(
+//            text: "The visa was not approved",
+//            answers: [
+//                .init(text: "Next", event: NoOpEvent()),
+//            ]
+//        )
+//    }
 
     static var goToNapoli: Self {
         .init(
             text: "Go to Napoli",
-            attach: nil,
+            attach: .image("plane"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -376,7 +379,7 @@ extension QuestionViewModel {
     static var covidTestTime: Self {
         .init(
             text: "Do you have time for 48h tests on Croce Rossa?",
-            attach: nil,
+            attach: .image("time croce rossa"),
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "No", event: BinaryModel.Event.no),
@@ -387,7 +390,7 @@ extension QuestionViewModel {
     static var noFreeCovidTests: Self {
         .init(
             text: "30.09 Croce Rossa stops making free tests",
-            attach: nil,
+            attach: .image("stop croce"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -397,7 +400,7 @@ extension QuestionViewModel {
     static var covidTestMoney: Self {
         .init(
             text: "Do you have money for 48h tests in pharmacies?",
-            attach: nil,
+            attach: .image("money pharmacy"),
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "No", event: BinaryModel.Event.no),
@@ -408,7 +411,7 @@ extension QuestionViewModel {
     static var testEvery48h: Self {
         .init(
             text: "Make test every 48h",
-            attach: nil,
+            attach: .image("every 48h"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -418,7 +421,7 @@ extension QuestionViewModel {
     static var noMoney: Self {
         .init(
             text: "Money have finished",
-            attach: nil,
+            attach: .image("money finished"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -428,7 +431,7 @@ extension QuestionViewModel {
     static var vaccine: Self {
         .init(
             text: "Go get the vaccine",
-            attach: nil,
+            attach: .image("vax"),
             answers: [
                 .init(text: "Go", event: NoOpEvent()),
             ]
@@ -438,7 +441,7 @@ extension QuestionViewModel {
     static var vaccineCFInvisible: Self {
         .init(
             text: "Your CF isn’t visible in the system",
-            attach: nil,
+            attach: .image("no cf"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -448,7 +451,7 @@ extension QuestionViewModel {
     static var vaccineFightingBureaucracy: Self {
         .init(
             text: "Continue fighting bureaucracy",
-            attach: nil,
+            attach: .image("fight"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -467,7 +470,7 @@ extension QuestionViewModel {
     static var gotVaccine: Self {
         .init(
             text: "You got the vaccine",
-            attach: nil,
+            attach: .image("vax"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -477,7 +480,7 @@ extension QuestionViewModel {
     static var allergic: Self {
         .init(
             text: "Are you allergic to the vaccine?",
-            attach: nil,
+            attach: .image("allergic_"),
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "No", event: BinaryModel.Event.no),
@@ -488,7 +491,7 @@ extension QuestionViewModel {
     static var greenpass: Self {
         .init(
             text: "Go get your Greenpass",
-            attach: nil,
+            attach: .image("greenpass"),
             answers: [
                 .init(text: "Go", event: NoOpEvent()),
             ]
@@ -498,7 +501,7 @@ extension QuestionViewModel {
     static var greenpassCFInvisible: Self {
         .init(
             text: "Your CF isn’t visible in the system",
-            attach: nil,
+            attach: .image("no cf"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -508,7 +511,7 @@ extension QuestionViewModel {
     static var greenpassFightingBureaucracy: Self {
         .init(
             text: "Start figting bureaucracy again",
-            attach: nil,
+            attach: .image("fight"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -518,7 +521,7 @@ extension QuestionViewModel {
     static var gotGreenPass: Self {
         .init(
             text: "FINALLY get your greenpass",
-            attach: nil,
+            attach: .image("greenpass"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]

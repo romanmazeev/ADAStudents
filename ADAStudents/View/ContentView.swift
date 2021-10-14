@@ -12,7 +12,7 @@ struct ContentView: View {
     private var fsm = FSM(initialState: .start)
 
     var viewModel: ViewModel {
-        fsm.currentState.viewModel
+        return fsm.currentState.viewModel
     }
 
     var body: some View {
