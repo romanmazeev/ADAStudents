@@ -122,6 +122,7 @@ extension QuestionViewModel {
     static var foundOutAboutAcademy: Self {
         .init(
             text: "Вы прочитали статью об академии",
+            attach: .image("article"),
             answers: [
                 .init(text: "Далее", event: NoOpEvent()),
             ]
@@ -165,6 +166,7 @@ extension QuestionViewModel {
     static var examHard: Self {
         .init(
             text: "How many reference counters are there in the Swift class?",
+            attach: .image("reference_counters"),
             answers: [
                 .init(text: "1", event: BinaryModel.Event.no),
                 .init(text: "2", event: BinaryModel.Event.no),

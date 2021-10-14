@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "reference_counters.png",
       "idiom" : "universal"
     }
   ],

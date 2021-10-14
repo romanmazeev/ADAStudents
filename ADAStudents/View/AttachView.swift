@@ -26,11 +26,8 @@ struct AttachView: View {
             ) { resultIndex in
                 self.callback(VisaStatusModel.Event.spin(titles[resultIndex] == "Yes"))
             }
-        case nil: // TODO:
-//            EmptyView()
-            Image("image2")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+        case nil:
+            EmptyView()
         }
     }
 }

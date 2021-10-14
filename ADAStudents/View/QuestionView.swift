@@ -35,6 +35,6 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(viewModel: .init(text: "Test", attach: .image("image2"), answers: []), callback: { _ in })
+        QuestionView(viewModel: .init(text: "Test", attach: .image("image1"), answers: []), callback: { _ in })
     }
 }

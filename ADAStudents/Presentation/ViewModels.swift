@@ -22,7 +22,7 @@ struct QuestionViewModel: ViewModel {
     let attach: Attach?
     let answers: [Answer]
 
-    init(text: String, attach: Attach? = nil, answers: [Answer]) {
+    init(text: String, attach: Attach?, answers: [Answer]) {
         self.text = text
         self.attach = attach
         self.answers = answers
