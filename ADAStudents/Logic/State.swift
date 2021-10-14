@@ -14,6 +14,7 @@ enum State {
     case applicationWasAccepted
     case timeForSubmissionIsOver
     case examPreparation
+    case startExam(prepared: Bool)
     case exam(prepared: Bool)
     case interview
     case english

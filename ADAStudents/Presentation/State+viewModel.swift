@@ -24,8 +24,13 @@ extension State {
         case .timeForSubmissionIsOver:
             return QuestionViewModel.timeForSubmissionIsOver
 
+        case .examPreparation:
+            return QuestionViewModel.examPreparation
+        case .startExam:
+            return QuestionViewModel.startExam
         case .exam(let prepared):
             return prepared ? QuestionViewModel.examEasy : QuestionViewModel.examHard
+
         case .interview:
             return QuestionViewModel.interview
         case .english:
@@ -34,8 +39,6 @@ extension State {
             return QuestionViewModel.invited
         case .interviewFailed:
             return QuestionViewModel.interviewFailed
-        case .examPreparation:
-            return QuestionViewModel.examPreparation
 
         case .waitingLetter:
             return QuestionViewModel.waitingLetter
@@ -143,6 +146,16 @@ extension QuestionViewModel {
             answers: [
                 .init(text: "Yes", event: BinaryModel.Event.yes),
                 .init(text: "No", event: BinaryModel.Event.no),
+            ]
+        )
+    }
+
+    static var startExam: Self {
+        .init(
+            text: "The exam has started",
+            attach: .image("exam"),
+            answers: [
+                .init(text: "Go", event: NoOpEvent())
             ]
         )
     }

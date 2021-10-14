@@ -25,7 +25,9 @@ extension State {
             return SimpleModel(next: .youDidNotGetIntoADA)
 
         case .examPreparation:
-            return BinaryModel(yes: .exam(prepared: true), no: .exam(prepared: false))
+            return BinaryModel(yes: .startExam(prepared: true), no: .startExam(prepared: false))
+        case .startExam(let prepared):
+            return SimpleModel(next: .exam(prepared: prepared))
         case .exam:
             return BinaryModel(yes: .interview, no: .youDidNotGetIntoADA)
 
