@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		307EDE592716D06D0076C50C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307EDE582716D06D0076C50C /* ContentView.swift */; };
 		307EDE5B2716DFC20076C50C /* AnswerButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307EDE5A2716DFC20076C50C /* AnswerButtonStyle.swift */; };
+		30E8261627182E6B006D7255 /* AttachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8261527182E6B006D7255 /* AttachView.swift */; };
 		30EF95C72716CDD700230C4C /* ADAStudentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EF95C62716CDD700230C4C /* ADAStudentsApp.swift */; };
 		30EF95CB2716CDD800230C4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30EF95CA2716CDD800230C4C /* Assets.xcassets */; };
 		30EF95CE2716CDD800230C4C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30EF95CD2716CDD800230C4C /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		307EDE582716D06D0076C50C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		307EDE5A2716DFC20076C50C /* AnswerButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtonStyle.swift; sourceTree = "<group>"; };
+		30E8261527182E6B006D7255 /* AttachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachView.swift; sourceTree = "<group>"; };
 		30EF95C32716CDD700230C4C /* ADAStudents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADAStudents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30EF95C62716CDD700230C4C /* ADAStudentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADAStudentsApp.swift; sourceTree = "<group>"; };
 		30EF95CA2716CDD800230C4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				30EF95C62716CDD700230C4C /* ADAStudentsApp.swift */,
 				307EDE582716D06D0076C50C /* ContentView.swift */,
 				8846C6F027178B17003597CE /* QuestionView.swift */,
+				30E8261527182E6B006D7255 /* AttachView.swift */,
 				307EDE5A2716DFC20076C50C /* AnswerButtonStyle.swift */,
 			);
 			path = View;
@@ -201,6 +204,7 @@
 				8846C6F327178B5C003597CE /* State.swift in Sources */,
 				8846C6F827178BE4003597CE /* ADAEvent.swift in Sources */,
 				8846C702271790DE003597CE /* State+model.swift in Sources */,
+				30E8261627182E6B006D7255 /* AttachView.swift in Sources */,
 				8846C6F627178BB7003597CE /* StateModels.swift in Sources */,
 				8846C6FA27178BF2003597CE /* ViewModels.swift in Sources */,
 				8846C70027178D6F003597CE /* State+viewModel.swift in Sources */,

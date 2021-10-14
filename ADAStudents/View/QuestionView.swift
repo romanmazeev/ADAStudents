@@ -33,25 +33,8 @@ struct QuestionView: View {
     }
 }
 
-struct AttachView: View {
-    let attach: QuestionViewModel.Attach?
-    let callback: (ADAEvent) -> Void
-
-    var body: some View {
-        switch attach {
-        case .image(let imageName):
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        case .fortuneWheel:
-            Button("Это типа колесо") {
-                self.callback(VisaStatusModel.Event.spin(Bool.random()))
-            }
-        case nil: // TODO:
-//            EmptyView()
-            Image("image2")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        }
+struct QuestionView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuestionView(viewModel: .init(text: "Test", attach: .image("image2"), answers: []), callback: { _ in })
     }
 }
