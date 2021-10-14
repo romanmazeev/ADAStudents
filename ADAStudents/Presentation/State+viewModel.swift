@@ -531,7 +531,7 @@ extension QuestionViewModel {
     static var tuesdayNight: Self {
         .init(
             text: "What to do on a Tuesday night",
-            attach: nil,
+            attach: .image("tuesday"),
             answers: [
                 .init(text: "Go to the club", event: BinaryModel.Event.yes),
                 .init(text: "Go to sleep", event: BinaryModel.Event.no),
@@ -542,7 +542,7 @@ extension QuestionViewModel {
     static var strangeGuy: Self {
         .init(
             text: "You came to club and strange guy and He offered to take his car for a ride",
-            attach: nil,
+            attach: .image("car"),
             answers: [
                 .init(text: "Take a ride", event: BinaryModel.Event.yes),
                 .init(text: "Decline his offer", event: BinaryModel.Event.no),
@@ -553,7 +553,7 @@ extension QuestionViewModel {
     static var robbed: Self {
         .init(
             text: "He brought you to a place where there are no people and robbed you.",
-            attach: nil,
+            attach: .image("robber"),
             answers: [
                 .init(text: "Play again", event: NoOpEvent()),
             ]
@@ -563,7 +563,7 @@ extension QuestionViewModel {
     static var friendsInClub: Self {
         .init(
             text: "You go inside the club, there you see your friends from the Apple developer academy",
-            attach: nil,
+            attach: .image("friends"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
@@ -573,7 +573,7 @@ extension QuestionViewModel {
     static var fewShots: Self {
         .init(
             text: "They offer you a few shots of tequila",
-            attach: nil,
+            attach: .image("shots"),
             answers: [
                 .init(text: "Don’t drink and be fresh naxt morning", event: BinaryModel.Event.yes),
                 .init(text: "Drink them, get overcreative and make a cool app", event: BinaryModel.Event.no),
@@ -584,7 +584,7 @@ extension QuestionViewModel {
     static var graduated: Self {
         .init(
             text: "You successfully graduated from the academy",
-            attach: nil,
+            attach: .image("graduation"),
             answers: [
                 .init(text: "Play again", event: NoOpEvent()),
             ]
