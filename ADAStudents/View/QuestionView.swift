@@ -13,14 +13,16 @@ struct QuestionView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             Text(viewModel.text)
-                .font(.largeTitle)
+                .font(.largeTitle.weight(.heavy))
                 .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
             Spacer()
 
             AttachView(attach: viewModel.attach, callback: callback)
 
-            Spacer()
+            Spacer(minLength: 16)
 
             ForEach(viewModel.answers, id: \.text) { answer in
                 Button(answer.text) {

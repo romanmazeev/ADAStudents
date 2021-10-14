@@ -18,6 +18,8 @@ struct AttachView: View {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .frame(maxHeight: 288)
         case .fortuneWheel:
             let titles = [[String]](repeating: ["Yes", "No"], count: 4).flatMap { $0 }
             FortuneWheel(
