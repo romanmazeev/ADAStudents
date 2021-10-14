@@ -24,8 +24,6 @@ enum State {
     
     case applyForVisa
     case visaStatus(VisaStatusModel.Status)
-   // case visaApproved
-   // case visaRejected
 
     case goToNapoli
     case covidTestTime

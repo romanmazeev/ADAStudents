@@ -48,10 +48,6 @@ extension State {
             return QuestionViewModel.applyForVisa
         case .visaStatus(let status):
             return QuestionViewModel.visaStatus(status)
-//        case .visaApproved:
-//            return QuestionViewModel.visaApproved
-//        case .visaRejected:
-//            return QuestionViewModel.visaRejected
 
         case .goToNapoli:
             return QuestionViewModel.goToNapoli
@@ -349,24 +345,6 @@ extension QuestionViewModel {
             answers: answers
         )
     }
-
-//    static var visaApproved: Self {
-//        .init(
-//            text: "The visa was approved",
-//            answers: [
-//                .init(text: "Next", event: NoOpEvent()),
-//            ]
-//        )
-//    }
-//
-//    static var visaRejected: Self {
-//        .init(
-//            text: "The visa was not approved",
-//            answers: [
-//                .init(text: "Next", event: NoOpEvent()),
-//            ]
-//        )
-//    }
 
     static var goToNapoli: Self {
         .init(

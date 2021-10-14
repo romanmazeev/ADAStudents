@@ -9,7 +9,7 @@ extension State {
     var model: StateModel {
         switch self {
         case .start:
-            return SimpleModel(next: .startApplying)
+            return SimpleModel(next: .foundOutAboutAcademy)
         case .foundOutAboutAcademy:
             return SimpleModel(next: .startApplying)
         case .startApplying:
@@ -48,10 +48,6 @@ extension State {
             return SimpleModel(next: .visaStatus(.idle))
         case .visaStatus(let status):
             return VisaStatusModel(status: status, yes: .goToNapoli, no: .youDidNotGetIntoADA)
-//        case .visaApproved:
-//            return SimpleModel(next: .goToNapoli)
-//        case .visaRejected:
-//            return SimpleModel(next: .youDidNotGetIntoADA)
 
         case .goToNapoli:
             return SimpleModel(next: .covidTestTime)
