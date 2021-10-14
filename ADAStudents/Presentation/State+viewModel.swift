@@ -107,7 +107,7 @@ extension State {
 extension QuestionViewModel {
     static var start: Self {
         .init(
-            text: "Graduate from ADA or Die!",
+            text: "Graduate from ADA or die!",
             attach: .image("startScreen"),
             answers: [
                 .init(text: "Start", event: NoOpEvent()),
@@ -117,10 +117,10 @@ extension QuestionViewModel {
 
     static var foundOutAboutAcademy: Self {
         .init(
-            text: "Вы прочитали статью об академии",
+            text: "You have read the article about Apple Developer Academy.",
             attach: .image("article"),
             answers: [
-                .init(text: "Далее", event: NoOpEvent()),
+                .init(text: "I want to study there!", event: NoOpEvent()),
             ]
         )
     }
@@ -173,7 +173,7 @@ extension QuestionViewModel {
 
     static var admissionToADA: Self {
         .init(
-            text: "Admission",
+            text: "Admission to ADA",
             attach: .image("admission"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
@@ -331,12 +331,12 @@ extension QuestionViewModel {
                 .init(text: "Next", event: VisaStatusModel.Event.choose(true)),
             ]
         case .no:
-            text = "Life is a bitch--"
+            text = "Life is a bitch. Visa denied"
          
             answers = [
                 .init(text: "Next", event: VisaStatusModel.Event.choose(false)),
             ]
-            attach = .image("skull")
+            attach = .image("bear")
         }
 
         return .init(
@@ -440,7 +440,7 @@ extension QuestionViewModel {
     static var specialDottoressa: Self {
         .init(
             text: "Get an appointment with special dottoressa",
-            attach: nil,
+            attach: .image("dottoressa"),
             answers: [
                 .init(text: "Next", event: NoOpEvent()),
             ]
