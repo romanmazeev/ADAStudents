@@ -1,5 +1,5 @@
 # ADAStudents
-Text game about a studen of Apple Developer Academy.<br>
+Text game about student of Apple Developer Academy.<br>
 Created during the first coding challenge at Apple Academy in 2021/2020.
 
 <img src = ".github/scrn1.png" width="32%" />&nbsp;<img src = ".github/scrn2.png" width="32%" />&nbsp;<img src = ".github/scrn3.png" width="32%" />
